@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Store Online | متجر أبل الإلكتروني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* ضمان ظهور الصور بشكل صحيح */
+        .product-img, .category-img {
+            position: relative;
+            overflow: hidden;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .product-img img, .category-img img {
+                width: 100%;
+                height: auto;
+                max-height: 100%;
+                object-fit: contain;
+                transition: transform 0.5s ease;
+            }
+
+        .category-img {
+            height: 200px;
+        }
+
+        .product-img {
+            height: 250px;
+        }
+
+        .product-card:hover .product-img img,
+        .category-card:hover .category-img img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- قائمة التنقل -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fab fa-apple"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#iphone">iPhone</a></li>
+            <li><a href="#ipad">iPad</a></li>
+            <li><a href="#mac">Mac</a></li>
+            <li><a href="#watch">Apple Watch</a></li>
+            <li><a href="#accessories">الملحقات</a></li>
+            <li><a href="#support">الدعم</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-shopping-bag"></i>
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="content">
+        <!-- البانر الرئيسي -->
+        <section class="hero" id="home" style="position: relative; height: 100vh; overflow: hidden;">
+
+            <!-- فيديو الخلفية -->
+            <video autoplay muted loop playsinline
+                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; pointer-events: none;">
+                <source src="https://www.apple.com/105/media/us/iphone/family/2025/e7ff365a-cb59-4ce9-9cdf-4cb965455b69/anim/welcome/xlarge_2x.mp4" type="video/mp4">
+            </video>
+
+
+            <!-- طبقة تعتيم فوق الفيديو -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 0;"></div>
+
+            <!-- النص وزر تسوق الآن -->
+            <div class="hero-content" style="position: relative; z-index: 10; text-align: center; color: white; top: 50%; transform: translateY(-50%);">
+                <h1 style="font-size: 48px; font-weight: bold;">أحدث منتجات Apple الأصلية</h1>
+                <p style="font-size: 20px; margin: 15px 0;">اكتشف عالم Apple المتكامل مع تشكيلة واسعة من المنتجات الفاخرة وبأسعار تنافسية</p>
+                <a href="#featured" class="btn" style="background-color: #0071e3; color: white; padding: 12px 25px; border-radius: 25px; font-weight: bold; text-decoration: none;">تسوق الآن</a>
+            </div>
+
+        </section>
+
+
+        <!-- أقسام المنتجات -->
+        <!-- قسم الأجهزة المستعملة -->
+
+        <section class="categories">
+            <h2>فئات المنتجات</h2>
+            <div class="category-grid">
+                <div class="category-card" id="iphone">
+                    <div class="category-img">
+                        <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-model-unselect-gallery-1-202409?wid=5120&hei=2880&fmt=webp&qlt=70&.v=aWs5czA5aDFXU0FlMGFGRlpYRXk2UWFRQXQ2R0JQTk5udUZxTkR3ZVlpTEJnOG9obkp6NERCS3lnVm1tcnlVUjBoUVhuTWlrY2hIK090ZGZZbk9HeE1xUVVnSHY5eU9CcGxDMkFhalkvT0NuWUpOMGpEMHVTZEtYYVA3c1B3UzVmbW94YnYxc1YvNXZ4emJGL0IxNFp3&traceId=1" alt="iPhone">
+                    </div>
+
+                    <div class="category-content">
+                        <h3>iPhone</h3>
+                        <p>استكشف أحدث إصدارات iPhone مع أداء استثنائي وتصميم راقي</p>
+                        <a href="#iphone-products" class="btn">تصفح الفئة</a>
+                    </div>
+                </div>
+                <div class="category-card" id="ipad">
+                    <div class="category-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-card-40-ipad-202210?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1664411141890" alt="iPad">
+                    </div>
+                    <div class="category-content">
+                        <h3>iPad</h3>
+                        <p>الأجهزة اللوحية المثالية للعمل والإبداع والترفيه</p>
+                        <a href="#ipad-products" class="btn">تصفح الفئة</a>
+                    </div>
+                </div>
+                <div class="category-card" id="mac">
+                    <div class="category-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-card-40-macbook-air-202206?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1653499620093" alt="Mac">
+                    </div>
+                    <div class="category-content">
+                        <h3>Mac</h3>
+                        <p>أجهزة MacBook و iMac الاحترافية بأداء استثنائي</p>
+                        <a href="#mac-products" class="btn">تصفح الفئة</a>
+                    </div>
+                </div>
+                <div class="category-card" id="watch">
+                    <div class="category-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-card-40-s9-202309?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1693703822208" alt="Apple Watch">
+                    </div>
+                    <div class="category-content">
+                        <h3>Apple Watch</h3>
+                        <p>ساعات ذكية لمراقبة صحتك وتنظيم يومك</p>
+                        <a href="#watch-products" class="btn">تصفح الفئة</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- منتجات Mac (7 منتجات) -->
+        <section class="featured-products" id="mac-products">
+            <div class="section-title">
+                <h2>أجهزة Mac</h2>
+                <p>اكتشف قوة وإبداع أجهزة Mac</p>
+            </div>
+            <div class="products-grid">
+                <!-- MacBook Pro 16" M3 Max -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spaceblack-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697230830079" alt="MacBook Pro 16 M3 Max">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>MacBook Pro 16" M3 Max</h3>
+                        <div class="price">
+                            <span class="original-price">12,999 شيكل</span>
+                            12,499 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M3 Max بمعمارية 3nm</li>
+                            <li>شاشة Liquid Retina XDR 16.2 بوصة</li>
+                            <li>ذاكرة حتى 128GB</li>
+                            <li>بطارية تدوم حتى 22 ساعة</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MacBook Air 15" M2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-skyblue-select-202503?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1741885365897" alt="MacBook Air 15 M2">
+                        <span class="product-badge">الأكثر مبيعاً</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>MacBook Air 15" M2</h3>
+                        <div class="price">
+                            <span class="original-price">7,499 شيكل</span>
+                            6,999 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M2 بمعمارية 5nm</li>
+                            <li>شاشة Retina 15.3 بوصة</li>
+                            <li>تصميم أنحف بسمك 11.5 مم</li>
+                            <li>بطارية تدوم حتى 18 ساعة</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iMac 24" M3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-24-blue-selection-hero-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697140495336" alt="iMac 24 M3">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iMac 24" M3</h3>
+                        <div class="price">
+                            <span class="original-price">6,999 شيكل</span>
+                            6,599 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M3 بمعمارية 3nm</li>
+                            <li>شاشة Retina 4.5K 24 بوصة</li>
+                            <li>7 ألوان متاحة</li>
+                            <li>كاميرا FaceTime HD 1080p</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mac mini M2 Pro -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-mini-hero-202301?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1670463443214" alt="Mac mini M2 Pro">
+                        <span class="product-badge">أفضل قيمة</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>Mac mini M2 Pro</h3>
+                        <div class="price">
+                            <span class="original-price">5,499 شيكل</span>
+                            4,999 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M2 Pro بمعمارية 5nm</li>
+                            <li>أداء يضاهي أجهزة سطح المكتب</li>
+                            <li>تصميم مضغوط</li>
+                            <li>يدعم شاشتين بجودة 6K</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mac Studio M2 Ultra -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-studio-hero-202306?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1684518479432" alt="Mac Studio M2 Ultra">
+                        <span class="product-badge">للإحترافيين</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>Mac Studio M2 Ultra</h3>
+                        <div class="price">
+                            <span class="original-price">15,999 شيكل</span>
+                            15,499 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M2 Ultra بمعمارية 5nm</li>
+                            <li>يصل إلى 24 نواة CPU و 76 نواة GPU</li>
+                            <li>ذاكرة حتى 192GB</li>
+                            <li>يدعم 8 شاشات خارجية</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MacBook Pro 14" M3 Pro -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spaceblack-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697230830068" alt="MacBook Pro 14 M3 Pro">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>MacBook Pro 14" M3 Pro</h3>
+                        <div class="price">
+                            <span class="original-price">9,999 شيكل</span>
+                            9,499 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M3 Pro بمعمارية 3nm</li>
+                            <li>شاشة Liquid Retina XDR 14.2 بوصة</li>
+                            <li>أداء يصل إلى 40% أسرع من M1 Pro</li>
+                            <li>بطارية تدوم حتى 18 ساعة</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mac Pro M2 Ultra -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mac-pro-hero-202306?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1684518479451" alt="Mac Pro M2 Ultra">
+                        <span class="product-badge">الأقوى</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>Mac Pro M2 Ultra</h3>
+                        <div class="price">
+                            <span class="original-price">22,999 شيكل</span>
+                            21,999 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M2 Ultra بمعمارية 5nm</li>
+                            <li>يصل إلى 24 نواة CPU و 76 نواة GPU</li>
+                            <li>ذاكرة حتى 192GB</li>
+                            <li>7 فتحات PCIe للتوسعة</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- منتجات iPhone (7 منتجات) -->
+        <section class="featured-products" id="iphone-products">
+            <div class="section-title">
+                <h2>هواتف iPhone</h2>
+                <p>اكتشف أحدث هواتف iPhone بأسعار تنافسية</p>
+            </div>
+            <div class="products-grid">
+                <!-- iPhone 15 Pro -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone15pro-digitalmat-gallery-1-202309?wid=728&hei=666&fmt=png-alpha&.v=1693346851441" alt="iPhone 15 Pro">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iPhone 15 Pro</h3>
+                        <div class="price">
+                            <span class="original-price">5,999 شيكل</span>
+                            5,699 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A17 Pro</li>
+                            <li>كاميرا 48 ميجابكسل</li>
+                            <li>شاشة 6.1 بوصة Super Retina XDR</li>
+                            <li>تصميم من التيتانيوم</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPhone 15 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone15-digitalmat-gallery-1-202309?wid=728&hei=666&fmt=png-alpha&.v=1693346851361" alt="iPhone 15">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iPhone 15</h3>
+                        <div class="price">
+                            <span class="original-price">4,999 شيكل</span>
+                            4,799 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A16 Bionic</li>
+                            <li>كاميرا 48 ميجابكسل</li>
+                            <li>شاشة 6.1 بوصة Super Retina XDR</li>
+                            <li>تصميم من الألومنيوم</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPhone 14 Pro -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone14pro-digitalmat-gallery-1-202209?wid=728&hei=666&fmt=png-alpha&.v=1660750268743" alt="iPhone 14 Pro">
+                    </div>
+                    <div class="product-content">
+                        <h3>iPhone 14 Pro</h3>
+                        <div class="price">
+                            <span class="original-price">5,499 شيكل</span>
+                            5,199 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A16 Bionic</li>
+                            <li>كاميرا 48 ميجابكسل</li>
+                            <li>شاشة 6.1 بوصة Always-On</li>
+                            <li>مقاومة للماء والغبار</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPhone 14 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone14-digitalmat-gallery-1-202209?wid=728&hei=666&fmt=png-alpha&.v=1660750268913" alt="iPhone 14">
+                    </div>
+                    <div class="product-content">
+                        <h3>iPhone 14</h3>
+                        <div class="price">
+                            <span class="original-price">4,499 شيكل</span>
+                            4,299 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A15 Bionic</li>
+                            <li>كاميرا 12 ميجابكسل</li>
+                            <li>شاشة 6.1 بوصة Super Retina XDR</li>
+                            <li>بطارية تدوم طوال اليوم</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPhone 13 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone13-digitalmat-gallery-1-202111?wid=728&hei=666&fmt=png-alpha&.v=1635195981000" alt="iPhone 13">
+                    </div>
+                    <div class="product-content">
+                        <h3>iPhone 13</h3>
+                        <div class="price">
+                            <span class="original-price">4,199 شيكل</span>
+                            3,999 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A15 Bionic</li>
+                            <li>كاميرا 12 ميجابكسل</li>
+                            <li>شاشة 6.1 بوصة Super Retina XDR</li>
+                            <li>تصميم مقاوم للماء</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPhone SE -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-digitalmat-gallery-1-202203?wid=728&hei=666&fmt=png-alpha&.v=1644989935470" alt="iPhone SE">
+                        <span class="product-badge">أفضل سعر</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iPhone SE</h3>
+                        <div class="price">
+                            <span class="original-price">3,199 شيكل</span>
+                            2,999 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A15 Bionic</li>
+                            <li>كاميرا 12 ميجابكسل</li>
+                            <li>شاشة 4.7 بوصة Retina HD</li>
+                            <li>دعم 5G</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPhone 12 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone12-digitalmat-gallery-1-202111?wid=728&hei=666&fmt=png-alpha&.v=1635195982000" alt="iPhone 12">
+                        <span class="product-badge">خصم %20</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iPhone 12</h3>
+                        <div class="price">
+                            <span class="original-price">3,799 شيكل</span>
+                            3,399 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A14 Bionic</li>
+                            <li>كاميرا 12 ميجابكسل</li>
+                            <li>شاشة 6.1 بوصة Super Retina XDR</li>
+                            <li>تصميم سيراميك شيلد</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- منتجات iPad (7 منتجات) -->
+        <section class="featured-products" id="ipad-products">
+            <div class="section-title">
+                <h2>أجهزة iPad</h2>
+                <p>اكتشف أحدث الأجهزة اللوحية من Apple</p>
+            </div>
+            <div class="products-grid">
+                <!-- iPad Pro -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-digitalmat-gallery-1-202210?wid=728&hei=666&fmt=png-alpha&.v=1664393336267" alt="iPad Pro">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iPad Pro M2</h3>
+                        <div class="price">
+                            <span class="original-price">5,499 شيكل</span>
+                            5,199 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M2</li>
+                            <li>شاشة Liquid Retina XDR</li>
+                            <li>كاميرا 12MP مع LiDAR</li>
+                            <li>دعم Apple Pencil</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPad Air -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-air-digitalmat-gallery-1-202203?wid=728&hei=666&fmt=png-alpha&.v=1645636338067" alt="iPad Air">
+                    </div>
+                    <div class="product-content">
+                        <h3>iPad Air</h3>
+                        <div class="price">
+                            <span class="original-price">4,199 شيكل</span>
+                            3,999 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M1</li>
+                            <li>شاشة Liquid Retina</li>
+                            <li>تصميم خفيف الوزن</li>
+                            <li>ألوان متعددة</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPad 10th Gen -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-digitalmat-gallery-1-202210?wid=728&hei=666&fmt=png-alpha&.v=1664393336267" alt="iPad 10th Gen">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iPad (الجيل العاشر)</h3>
+                        <div class="price">
+                            <span class="original-price">3,499 شيكل</span>
+                            3,299 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A14 Bionic</li>
+                            <li>شاشة Retina 10.9 بوصة</li>
+                            <li>كاميرا أمامية 12MP</li>
+                            <li>تصميم حديث</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPad 9th Gen -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-digitalmat-gallery-1-202108?wid=728&hei=666&fmt=png-alpha&.v=1628521281000" alt="iPad 9th Gen">
+                        <span class="product-badge">أفضل سعر</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>iPad (الجيل التاسع)</h3>
+                        <div class="price">
+                            <span class="original-price">2,799 شيكل</span>
+                            2,599 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A13 Bionic</li>
+                            <li>شاشة Retina 10.2 بوصة</li>
+                            <li>كاميرا أمامية 8MP</li>
+                            <li>دعم Apple Pencil</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPad mini -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-mini-digitalmat-gallery-1-202109?wid=728&hei=666&fmt=png-alpha&.v=1630510000000" alt="iPad mini">
+                    </div>
+                    <div class="product-content">
+                        <h3>iPad mini</h3>
+                        <div class="price">
+                            <span class="original-price">3,399 شيكل</span>
+                            3,199 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة A15 Bionic</li>
+                            <li>شاشة Retina 8.3 بوصة</li>
+                            <li>تصميم مضغوط</li>
+                            <li>دعم Apple Pencil</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPad Pro 11" -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-11-digitalmat-gallery-1-202210?wid=728&hei=666&fmt=png-alpha&.v=1664393336267" alt="iPad Pro 11">
+                    </div>
+                    <div class="product-content">
+                        <h3>iPad Pro 11"</h3>
+                        <div class="price">
+                            <span class="original-price">4,999 شيكل</span>
+                            4,799 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M2</li>
+                            <li>شاشة Liquid Retina</li>
+                            <li>كاميرا 12MP</li>
+                            <li>تصميم أنيق</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iPad Pro 12.9" -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-12-digitalmat-gallery-1-202210?wid=728&hei=666&fmt=png-alpha&.v=1664393336267" alt="iPad Pro 12.9">
+                    </div>
+                    <div class="product-content">
+                        <h3>iPad Pro 12.9"</h3>
+                        <div class="price">
+                            <span class="original-price">6,499 شيكل</span>
+                            6,199 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة M2</li>
+                            <li>شاشة Liquid Retina XDR</li>
+                            <li>كاميرا 12MP مع LiDAR</li>
+                            <li>أداء احترافي</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- منتجات Apple Watch (7 منتجات) -->
+        <section class="featured-products" id="watch-products">
+            <div class="section-title">
+                <h2>ساعات Apple Watch</h2>
+                <p>اكتشف أحدث الساعات الذكية من Apple</p>
+            </div>
+            <div class="products-grid">
+                <!-- Apple Watch Series 9 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPTP3ref_VW_34FR+watch-45-alum-midnight-nc-9s_VW_34FR_WF_CO?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1693500682985" alt="Apple Watch Series 9">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>Apple Watch Series 9</h3>
+                        <div class="price">
+                            <span class="original-price">2,499 شيكل</span>
+                            2,299 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة S9 SiP</li>
+                            <li>شاشة Retina LTPO OLED</li>
+                            <li>مقاومة الماء حتى 50 متر</li>
+                            <li>تتبع النوم والصحة</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apple Watch Ultra 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MT3V3ref_VW_34FR+watch-49-titanium-ultra2_VW_34FR_WF_CO?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1693500682985" alt="Apple Watch Ultra 2">
+                        <span class="product-badge">جديد</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>Apple Watch Ultra 2</h3>
+                        <div class="price">
+                            <span class="original-price">3,999 شيكل</span>
+                            3,799 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة S9 SiP</li>
+                            <li>شاشة Retina LTPO OLED</li>
+                            <li>مقاومة الماء حتى 100 متر</li>
+                            <li>بطارية تدوم 36 ساعة</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apple Watch SE -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPP23ref_VW_34FR+watch-40-alum-midnight-nc-se_VW_34FR_WF_CO?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1693500682985" alt="Apple Watch SE">
+                        <span class="product-badge">أفضل سعر</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>Apple Watch SE</h3>
+                        <div class="price">
+                            <span class="original-price">1,799 شيكل</span>
+                            1,599 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة S8 SiP</li>
+                            <li>شاشة Retina LTPO OLED</li>
+                            <li>مقاومة الماء حتى 50 متر</li>
+                            <li>تتبع النشاط البدني</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apple Watch Series 8 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQ6D3ref_VW_34FR+watch-45-alum-midnight-nc-8s_VW_34FR_WF_CO?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1693500682985" alt="Apple Watch Series 8">
+                    </div>
+                    <div class="product-content">
+                        <h3>Apple Watch Series 8</h3>
+                        <div class="price">
+                            <span class="original-price">2,299 شيكل</span>
+                            2,099 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة S8 SiP</li>
+                            <li>شاشة Retina LTPO OLED</li>
+                            <li>تتبع درجة الحرارة</li>
+                            <li>كشف السقوط وحوادث السيارات</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apple Watch Series 7 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUU3ref_VW_34FR+watch-45-alum-midnight-nc-7s_VW_34FR_WF_CO?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1693500682985" alt="Apple Watch Series 7">
+                    </div>
+                    <div class="product-content">
+                        <h3>Apple Watch Series 7</h3>
+                        <div class="price">
+                            <span class="original-price">1,999 شيكل</span>
+                            1,799 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة S7 SiP</li>
+                            <li>شاشة Retina LTPO OLED</li>
+                            <li>مقاومة الماء حتى 50 متر</li>
+                            <li>شاشة أكبر بنسبة 20%</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apple Watch Nike -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQDY3ref_VW_34FR+watch-45-alum-midnight-nc-nike7s_VW_34FR_WF_CO?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1693500682985" alt="Apple Watch Nike">
+                    </div>
+                    <div class="product-content">
+                        <h3>Apple Watch Nike</h3>
+                        <div class="price">
+                            <span class="original-price">2,199 شيكل</span>
+                            1,999 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة S8 SiP</li>
+                            <li>تصميم Nike الحصري</li>
+                            <li>حزام Nike الرياضي</li>
+                            <li>تطبيق Nike Run Club</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apple Watch Hermès -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQDP3ref_VW_34FR+watch-45-alum-midnight-nc-hermes7s_VW_34FR_WF_CO?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1693500682985" alt="Apple Watch Hermès">
+                        <span class="product-badge">فاخر</span>
+                    </div>
+                    <div class="product-content">
+                        <h3>Apple Watch Hermès</h3>
+                        <div class="price">
+                            <span class="original-price">4,999 شيكل</span>
+                            4,799 شيكل
+                        </div>
+                        <ul class="features">
+                            <li>شريحة S9 SiP</li>
+                            <li>تصميم Hermès الحصري</li>
+                            <li>أحزمة جلدية فاخرة</li>
+                            <li>واجهات ساعة حصرية</li>
+                        </ul>
+                        <div class="product-buttons">
+                            <button class="btn-cart">أضف إلى السلة</button>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- تذييل الصفحة -->
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>عن المتجر</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">فريق العمل</a></li>
+                        <li><a href="#">الوظائف</a></li>
+                        <li><a href="#">شركاؤنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">طرق الدفع</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الأسئلة المتكررة</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>منتجاتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">iPhone</a></li>
+                        <li><a href="#">iPad</a></li>
+                        <li><a href="#">Mac</a></li>
+                        <li><a href="#">Apple Watch</a></li>
+                        <li><a href="#">الملحقات</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+970599999999">+970 59 999 9999</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:qusayhamad919@gmail.com">qusayhamad919@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>رام الله، فلسطين</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>أوقات العمل: من الأحد إلى الخميس، 9 صباحاً - 6 مساءً</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <li>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2025 Apple Store Online. منتجات Apple وشعاراتها هي علامات تجارية مسجلة لشركة Apple Inc.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- زر العودة للأعلى -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
