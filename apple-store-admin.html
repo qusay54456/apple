@@ -1,3 +1,4 @@
+
 ﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -532,4 +533,540 @@
         createRandomShapes();
     </script>
 </body>
+=======
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - لوحة التحكم</title>
+    <style>
+        :root {
+            --primary-color: #0071e3;
+            --primary-hover: #0051a2;
+            --error-color: #ff3b30;
+            --success-color: #34c759;
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-color: #1d1d1f;
+            --border-color: #d2d2d7;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            transition: all 0.3s ease;
+        }
+
+            .container:hover {
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .logo svg {
+                width: 40px;
+                height: 40px;
+                fill: var(--primary-color);
+            }
+
+        h1 {
+            text-align: center;
+            color: var(--text-color);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+            input:focus {
+                outline: none;
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+            }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #86868b;
+        }
+
+        .password-toggle {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #86868b;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+            button:hover {
+                background-color: var(--primary-hover);
+                transform: translateY(-2px);
+            }
+
+            button:active {
+                transform: translateY(0);
+            }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+            .remember-me input {
+                width: auto;
+                margin-left: 8px;
+            }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .forgot-password a {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+                .forgot-password a:hover {
+                    text-decoration: underline;
+                }
+
+        .message {
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+            .message.visible {
+                opacity: 1;
+                height: auto;
+                padding: 15px;
+                margin-top: 20px;
+            }
+
+        .error {
+            background-color: rgba(255, 59, 48, 0.1);
+            color: var(--error-color);
+        }
+
+        .success {
+            background-color: rgba(52, 199, 89, 0.1);
+            color: var(--success-color);
+        }
+
+        .loader {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .login-btn-text {
+            transition: opacity 0.3s;
+        }
+
+        .fade-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(0, 113, 227, 0.08) 0%, rgba(0, 113, 227, 0) 100%);
+            z-index: -1;
+            transform: skewY(-5deg);
+            transform-origin: top right;
+        }
+
+        /* التحقق من المدخلات */
+        .validation-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+        }
+
+            .validation-icon.valid {
+                color: var(--success-color);
+                display: block;
+            }
+
+            .validation-icon.invalid {
+                color: var(--error-color);
+                display: block;
+            }
+
+        .form-tip {
+            font-size: 12px;
+            color: #86868b;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* تأثيرات إضافية */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background-color: rgba(0, 113, 227, 0.03);
+            border-radius: 50%;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .shape3 {
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 10%;
+            background-color: rgba(0, 113, 227, 0.02);
+        }
+
+        /* تحسينات للأجهزة المحمولة */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 12px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            input, button {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fade-bg"></div>
+    <div class="floating-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
+            </svg>
+        </div>
+        <h1>تسجيل الدخول إلى لوحة التحكم</h1>
+
+        <div class="form-group">
+            <label for="username">البريد الإلكتروني</label>
+            <div class="input-wrapper">
+                <input type="email" id="username" placeholder="أدخل البريد الإلكتروني" autocomplete="email">
+                <svg class="validation-icon valid" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 13l4 4L19 7"></path>
+                </svg>
+                <svg class="validation-icon invalid" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <p class="form-tip" id="email-tip">يرجى إدخال بريد إلكتروني صالح</p>
+        </div>
+
+        <div class="form-group">
+            <label for="password">كلمة المرور</label>
+            <div class="input-wrapper">
+                <input type="password" id="password" placeholder="أدخل كلمة المرور" autocomplete="current-password">
+                <button type="button" class="password-toggle" aria-label="إظهار/إخفاء كلمة المرور">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="password-icon">
+                        <path d="M12 5C5.636 5 2 12 2 12s3.636 7 10 7 10-7 10-7-3.636-7-10-7z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="remember-me">
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">تذكرني</label>
+        </div>
+
+        <button type="button" id="login-btn">
+            <span class="login-btn-text">تسجيل الدخول</span>
+            <div class="loader"></div>
+        </button>
+
+        <div class="message error" id="error-message">خطأ في تسجيل الدخول. يرجى التحقق من البريد الإلكتروني وكلمة المرور</div>
+        <div class="message success" id="success-message">تم تسجيل الدخول بنجاح، جاري توجيهك...</div>
+
+        <div class="forgot-password">
+            <a href="#">نسيت كلمة المرور؟</a>
+        </div>
+    </div>
+
+    <script>
+        // الحصول على العناصر
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginBtn = document.getElementById('login-btn');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+        const passwordToggle = document.querySelector('.password-toggle');
+        const passwordIcon = document.getElementById('password-icon');
+        const loginBtnText = document.querySelector('.login-btn-text');
+        const loader = document.querySelector('.loader');
+        const validIcon = document.querySelector('.validation-icon.valid');
+        const invalidIcon = document.querySelector('.validation-icon.invalid');
+        const emailTip = document.getElementById('email-tip');
+
+        // التحقق من صحة البريد الإلكتروني
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        // تحديث أيقونة التحقق من البريد الإلكتروني
+        usernameInput.addEventListener('input', function () {
+            const email = this.value.trim();
+            if (email === '') {
+                validIcon.style.display = 'none';
+                invalidIcon.style.display = 'none';
+                emailTip.style.display = 'none';
+            } else if (validateEmail(email)) {
+                validIcon.style.display = 'block';
+                invalidIcon.style.display = 'none';
+                emailTip.style.display = 'none';
+            } else {
+                validIcon.style.display = 'none';
+                invalidIcon.style.display = 'block';
+                emailTip.style.display = 'block';
+            }
+        });
+
+        // إظهار/إخفاء كلمة المرور
+        passwordToggle.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // تغيير الأيقونة
+            if (type === 'text') {
+                passwordIcon.innerHTML = `
+                        <path d="M2 12s3.636-7 10-7 10 7 10 7-3.636 7-10 7-10-7-10-7z"></path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    `;
+            } else {
+                passwordIcon.innerHTML = `
+                        <path d="M12 5C5.636 5 2 12 2 12s3.636 7 10 7 10-7 10-7-3.636-7-10-7z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    `;
+            }
+        });
+
+        // إظهار رسالة
+        function showMessage(element, duration = 3000) {
+            element.classList.add('visible');
+
+            if (duration > 0) {
+                setTimeout(() => {
+                    element.classList.remove('visible');
+                }, duration);
+            }
+        }
+
+        // محاكاة تحميل تسجيل الدخول
+        function simulateLoading(success = true) {
+            // إظهار التحميل
+            loginBtnText.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'block';
+            }, 300);
+
+            // محاكاة تحميل
+            setTimeout(() => {
+                loader.style.display = 'none';
+                loginBtnText.style.opacity = '1';
+
+                if (success) {
+                    showMessage(successMessage, 0);
+                    setTimeout(() => {
+                        window.location.href = "admin-panel.html";
+                    }, 1500);
+                } else {
+                    showMessage(errorMessage);
+                }
+            }, 1500);
+        }
+
+        // زر تسجيل الدخول
+        loginBtn.addEventListener('click', function () {
+            // الحصول على القيم
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            // التحقق البسيط
+            if (username === '' || password === '') {
+                showMessage(errorMessage);
+                return;
+            }
+
+            // التحقق من بيانات الاعتماد
+            if (username === 'qusayhamad919@gmail.com' && password === '0568668543') {
+                // تسجيل الدخول ناجح
+                simulateLoading(true);
+            } else {
+                // تسجيل الدخول فاشل
+                simulateLoading(false);
+            }
+        });
+
+        // تسجيل الدخول عند الضغط على Enter
+        passwordInput.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                loginBtn.click();
+            }
+        });
+
+        // إضافة تأثيرات حركية للخلفية
+        function createRandomShapes() {
+            const floatingShapes = document.querySelector('.floating-shapes');
+
+            for (let i = 0; i < 3; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+
+                const size = Math.random() * 60 + 20;
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const opacity = Math.random() * 0.03;
+
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.left = `${left}%`;
+                shape.style.top = `${top}%`;
+                shape.style.backgroundColor = `rgba(0, 113, 227, ${opacity})`;
+
+                floatingShapes.appendChild(shape);
+            }
+        }
+
+        createRandomShapes();
+    </script>
+</body>
+
 </html>
